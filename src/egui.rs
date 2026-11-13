@@ -118,7 +118,6 @@ fn char_of(key: egui::Key, physical: Option<egui::Key>, mods: Mods) -> Option<ch
     Some(if c.is_ascii_alphabetic() && !mods.shift { c.to_ascii_lowercase() } else { c })
 }
 
-
 /// Tek bir egui tuşu (Text olayı olmadan); yazı üreten tuşlar düzenden bağımsız egui adıyla gelir.
 pub fn to_less_key(key: egui::Key, modifiers: egui::Modifiers) -> Option<KeyEvent> {
     let m = mods(modifiers);
@@ -183,7 +182,6 @@ mod tests {
         let out = translate(&[key(E::Escape, Modifiers::NONE), released, key(E::Tab, Modifiers::SHIFT)]);
         assert_eq!(out, vec![KeyEvent::plain(Key::Esc), KeyEvent::new(Key::Tab, Mods::SHIFT)]);
     }
-
 
     #[test]
     fn single_key_without_text_event() {

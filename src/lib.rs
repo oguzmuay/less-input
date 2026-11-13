@@ -4,15 +4,19 @@
 //! `handled == false` ise tuş editörün değildir (Cmd kısayolları, F tuşları), uygulama işler.
 
 pub mod common;
+#[cfg(feature = "egui")]
+pub mod egui;
 pub mod ex;
 pub mod keys;
 pub mod modeless;
+pub mod page;
 pub mod vim;
 
 use less_core::command::{Command, CursorMode};
 
 pub use keys::{Key, KeyEvent, Mods, notation, parse_keys};
 pub use modeless::ModelessEngine;
+pub use page::{PageAction, PageEngine};
 pub use vim::{VimEngine, VimMode};
 
 /// Ayar `mode = "vim" | "normal"` (PLAN.md §2).
